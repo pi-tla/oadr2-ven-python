@@ -180,7 +180,8 @@ class EventHandler(object):
                 old_mod_num = get_mod_number(old_event, self.ns_map)    # get it's mod number
 
             # For the events we need to reply to, make our "opts," and check the status of the event
-            if (old_event is None) or (e_mod_num > old_mod_num) or (response_required == 'always'):
+            if ((old_event is None) or (e_mod_num > old_mod_num) or (response_required == 'always'))\
+                and (response_required != "never"):
                 # By default, we optIn and have an "OK," status (200)
                 opt = 'optIn'
                 status = '200'
